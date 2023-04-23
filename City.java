@@ -86,7 +86,7 @@ public class City{
         //First, for all entities ...
         for(Entity e : entities){
             // Only moves the entities with the green label
-            if(e.lab == 'g'){
+            if(e.lab == 'g' || e.lab == 'b'){
                 // Moves the Collector entity
                 e.move(); 
             }
@@ -95,7 +95,7 @@ public class City{
         
         //Second, for all entities ...
         for(Entity e : entities){
-            if(e.lab == 'g'){
+            if(e.lab == 'g' || e.lab == 'b'){
                 e.takeAction(); 
             }
         }//take some action based on the new positions
