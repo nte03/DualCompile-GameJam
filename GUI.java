@@ -15,6 +15,12 @@ public class GUI extends JFrame {
         JTextField trash = new JTextField("", 10);
         JButton submit = new JButton("Submit", null);
 
+        submit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                //Send trash and trash comapctor info to plotter
+            }
+        });
+
         this.setSize(400,150);
         JPanel top = new JPanel();
         top.add(amttrashc);
