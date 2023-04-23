@@ -1,1 +1,1 @@
-Most of the work on this GameJam project comes from CSCI 2113's Project 1 which includes City.java, PlotterPoint.java, GridPoint.java, Entity.java, and the movement and action behavior of some entities.
+Most of the work on this GameJam project comes from CSCI 2113's Project 1 which includes City.java, PlotterPoint.java, GridPoint.java, Entity.java, Simulator.java, and the movement and action behavior of some entities.
