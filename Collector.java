@@ -11,6 +11,7 @@ public class Collector extends Entity {
         this.lab = LAB_GREEN;
         // Set the direction to random
         this.dir = rand.nextInt(NUM_DIRS);
+        stepLen = 1;
     }
     public void move(){
         // Roll the random number to determine if it turns
@@ -43,7 +44,7 @@ public class Collector extends Entity {
     public void takeAction(){
         // The closest entity is not nearby by default
         Entity closest = null;
-        // For loop to check for nearest trash within 20 is a mouse
+        // For loop to check for nearest trash within 20
         for(Entity e : city.entities){
             // Checks if the label of the creature is blue and is within 20
             if(e.lab == LAB_GRAY && dist(e) <= 20 && (closest == null || dist(e) < dist(closest))){
@@ -56,7 +57,7 @@ public class Collector extends Entity {
            // Changes label to cyan
            this.lab = LAB_BLUE;
            if(Math.abs(closest.getX() - getX()) < (Math.abs(closest.getY() - getY()))){
-               // Checks if closest.y is greater than Cat's y
+               // Checks if closest.y is greater than Collector's y
                if(closest.getY() > getY()){
                    // Sets direction to 2
                    setDir(2);
@@ -65,7 +66,7 @@ public class Collector extends Entity {
                    setDir(0);
                }
            } else {
-               // Check if closest's x is greater than Cat's x
+               // Check if closest's x is greater than Collector's x
                if(closest.getX() > getX()){
                    // Sets direction to 1
                    setDir(1);

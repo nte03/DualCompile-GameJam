@@ -41,7 +41,9 @@ public class City{
         this.entities = new LinkedList<Entity>();
         this.entitiesToAdd = new LinkedList<Entity>();
         
-        for (int i=0; i<numTrash; i++) addTrash();
+        for (int i=0; i<numTrash; i++){
+            addTrash();
+        }
         for (int i=0; i<numCollector; i++){
             addCollector();
         }
@@ -56,12 +58,12 @@ public class City{
     }
     
     public void addTrash(){
-        //entitiesToAdd.add(new Mouse(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
+        entitiesToAdd.add(new Trash(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
     }
     
     public void addCollector(){
         
-        //entitiesToAdd.add(new Cat(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
+        entitiesToAdd.add(new Collector(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
     }
     
    
