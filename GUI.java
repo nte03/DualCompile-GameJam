@@ -5,6 +5,8 @@ import javax.swing.border.Border;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class GUI extends JFrame {
     public GUI() {
         super();
@@ -17,7 +19,26 @@ public class GUI extends JFrame {
 
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                //Send trash and trash comapctor info to plotter
+                String numTrash = trash.getText();
+                String numCollectors = trashc.getText();
+                String rounds = "100"; // or any other value you want to use
+                String randSeed = "42"; // or any other value you want to use
+        
+                String[] command = {"bash", "-c", "java Simulator " + numTrash + " " + numCollectors + " " + rounds + " " + randSeed + " | java -jar Plotter.jar"};
+        
+                try {
+                    ProcessBuilder builder = new ProcessBuilder(command);
+                    builder.redirectErrorStream(true);
+                    Process process = builder.start();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                    reader.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
